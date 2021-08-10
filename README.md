@@ -21,6 +21,18 @@
 </p>
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+  
+# Intership-APY.Vision-NestJS-Documentation
+
+## About the Project:
+
++ This is the project of the documentation to learn NestJS and be able to try to solve the task to obtain the desired intership as the backend intern in APY.Vision
+
+## Project Details:
+
+This will be an overview of a basic setup based on the Nest.JS documentation.
+
+You can find the resources in this link: https://docs.nestjs.com/first-steps. In the overview starting out with the "First Steps".
 
 ## Description
 
