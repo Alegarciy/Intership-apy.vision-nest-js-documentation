@@ -8,6 +8,7 @@ import {
 } from './dto/student.dto';
 
 import { v4 as uuid } from 'uuid';
+import { FindTeacherResponseDto } from 'src/teacher/dto/teacher.dto';
 
 @Injectable()
 export class StudentService {
@@ -42,6 +43,31 @@ export class StudentService {
         updatedStudent = {
           id: student.id,
           ...payload,
+        };
+      } else return student;
+    });
+
+    this.students = updatedStudentList;
+    return updatedStudent;
+  }
+
+  getStudentsByTeacher(teacherId: string): FindStudentsResponseDto[] {
+    return this.students.filter((student) => {
+      return student.teacher === teacherId;
+    });
+  }
+
+  updateStudentTeacher(
+    teacherId: string,
+    studentId: string,
+  ): StudentsResponseDto {
+    let updatedStudent: StudentsResponseDto;
+
+    const updatedStudentList = this.students.map((student) => {
+      if (student.id === studentId) {
+        updatedStudent = {
+          ...student,
+          teacher: teacherId,
         };
       } else return student;
     });

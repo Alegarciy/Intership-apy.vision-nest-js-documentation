@@ -3,14 +3,17 @@ import {
   FindStudentsResponseDto,
   StudentsResponseDto,
 } from 'src/student/dto/student.dto';
+import { StudentService } from 'src/student/student.service';
 
 @Controller('teachers/:teacherId/students')
 export class StudentTeacherController {
+  constructor(private readonly studentService: StudentService) {}
+
   @Get()
   getTeacherStudents(
     @Param('teacherId') teacherId: string,
   ): FindStudentsResponseDto[] {
-    return `Get teacher students of ${teacherId}`;
+    return this.studentService.getStudentsByTeacher(teacherId);
   }
 
   @Put('/:studentId')
@@ -19,8 +22,6 @@ export class StudentTeacherController {
     @Param('studentId') studentId: string,
     @Body() body,
   ): StudentsResponseDto {
-    return `Update Student Teacher With Id of ${teacherId} of Student with Id ${studentId} with ${JSON.stringify(
-      body,
-    )}`;
+    return this.studentService.updateStudentTeacher(teacherId, studentId);
   }
 }
