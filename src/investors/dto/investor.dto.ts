@@ -6,3 +6,7 @@ export class FindInvestorResponseDto {
   lp_email: string;
   pool_address: string;
 }
+
+export class CreateInvestorDto {
+  user_email: string;
+}

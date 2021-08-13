@@ -9,15 +9,23 @@ export class Investors {
   @Column()
   user_email: string;
 
-  @Column()
+  @Column({
+    default: 100000,
+  })
   usd: number;
 
-  @Column()
+  @Column({
+    default: 0,
+  })
   lp_amount: number;
 
-  @Column()
+  @Column({
+    default: '',
+  })
   lp_name: string;
 
-  @Column()
+  @Column({
+    default: '',
+  })
   pool_address: string;
 }
