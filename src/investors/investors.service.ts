@@ -22,4 +22,10 @@ export class InvestorsService extends TypeOrmCrudService<Investors> {
     newInvestor.user_email = body.user_email;
     return this.repo.save(newInvestor);
   }
+
+  async updateWallet(id: number, body: any): Promise<Investors> {
+    const currentInvestor = await this.repo.findOne(id);
+    this.repo.merge(currentInvestor, body);
+    return this.repo.save(currentInvestor);
+  }
 }
